@@ -63,7 +63,7 @@ module Rich
   mattr_accessor :editor
   @@editor = {
     :height => 400,
-    :stylesSet  =>  [],
+    :stylesSet  =>  [:my_styles],
     :extraPlugins => 'stylesheetparser,richfile,MediaEmbed',
     :removePlugins => 'scayt,menubutton,image,forms',
     :contentsCss => :default,
@@ -109,7 +109,6 @@ module Rich
 
     # if the contentcss is set to :default, use the asset pipeline
     editor_options[:contentsCss] = ActionController::Base.helpers.stylesheet_path('rich/editor.css') if editor_options[:contentsCss] == :default
-
 
     # update the language to the currently selected locale
     editor_options[:language] = I18n.locale
